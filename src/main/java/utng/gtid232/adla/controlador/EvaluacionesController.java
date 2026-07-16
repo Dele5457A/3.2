@@ -115,7 +115,6 @@ public class EvaluacionesController {
     public class CapturaEvaluacionController {
     @FXML
     public void initialize() {
-        // Tu código de inicialización para esta vista aquí
     }
 }
 }

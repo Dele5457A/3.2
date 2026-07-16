@@ -75,7 +75,7 @@ public class AuditorDAO {
             ps.setString(3, a.getEmail());
             ps.setInt(4, a.getIdAuditor());
             ps.executeUpdate();
-        } // Se corrigió el cierre de llaves aquí
+        } 
     }
 
     public void eliminar(int id) throws SQLException {

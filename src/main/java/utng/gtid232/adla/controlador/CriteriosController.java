@@ -35,7 +35,6 @@ public class CriteriosController {
         cargarCategorias();
         cargarCriteriosCompletos();
 
-        // Filtrar automáticamente al seleccionar una categoría del ComboBox
         cbCategoriaFiltro.setOnAction(event -> {
             Categoria seleccionada = cbCategoriaFiltro.getValue();
             if (seleccionada != null) {

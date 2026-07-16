@@ -11,7 +11,6 @@ import utng.gtid232.adla.modelo.Auditoria;
 
 public class HallazgosController {
 
-    // --- Componentes FXML para la vista de Hallazgos ---
     @FXML private ComboBox<Auditoria> cmbAuditorias;
     @FXML private TableView<Object> tblHallazgos; 
     @FXML private TableColumn<Object, Integer> colId;
@@ -23,7 +22,6 @@ public class HallazgosController {
     @FXML private ComboBox<String> cmbGravedad;
     @FXML private ComboBox<String> cmbEstatus;
 
-    // Componentes típicos para Planes de Acción si están en el mismo FXML
     @FXML private TextArea txtPlanAccion;
     @FXML private DatePicker dpFechaCompromiso;
 
@@ -33,18 +31,15 @@ public class HallazgosController {
     public void initialize() {
         System.out.println("Inicializando HallazgosController...");
 
-        // Inicialización segura de ComboBox de Auditorías
         if (cmbAuditorias != null) {
             cmbAuditorias.setItems(FXCollections.observableArrayList(auditoriaDAO.listar()));
         }
 
-        // Inicialización segura de las columnas de la tabla
         if (colId != null) colId.setCellValueFactory(new PropertyValueFactory<>("idHallazgo"));
         if (colDetalle != null) colDetalle.setCellValueFactory(new PropertyValueFactory<>("detalle"));
         if (colGravedad != null) colGravedad.setCellValueFactory(new PropertyValueFactory<>("gravedad"));
         if (colEstatus != null) colEstatus.setCellValueFactory(new PropertyValueFactory<>("estatus"));
 
-        // Llenado de combos de gravedad y estatus
         if (cmbGravedad != null) {
             cmbGravedad.setItems(FXCollections.observableArrayList("Crítica", "Mayor", "Menor", "Observación"));
         }
@@ -53,7 +48,6 @@ public class HallazgosController {
         }
     }
 
-    // --- MÉTODOS DE EVENTOS REQUERIDOS POR TU FXML ---
 
     @FXML
     private void cargarDatosAuditoria(ActionEvent event) {
@@ -66,7 +60,6 @@ public class HallazgosController {
         }
     }
 
-    // Métodos para guardar/registrar Hallazgos
     @FXML
     private void registrarHallazgo(ActionEvent event) {
         System.out.println("Ejecutando registrarHallazgo...");
@@ -78,11 +71,9 @@ public class HallazgosController {
         registrarHallazgo(event);
     }
 
-    // --- EL MÉTODO QUE HACÍA FALTA ---
     @FXML
     private void guardarPlanAccion(ActionEvent event) {
         System.out.println("Ejecutando guardarPlanAccion...");
-        // Aquí agregarás la lógica para guardar el plan de acción asociado en la BD
     }
 
     @FXML
@@ -91,7 +82,6 @@ public class HallazgosController {
         guardarPlanAccion(event);
     }
 
-    // Métodos para modificar/editar
     @FXML
     private void modificarHallazgo(ActionEvent event) {
         System.out.println("Ejecutando modificarHallazgo...");
@@ -107,7 +97,6 @@ public class HallazgosController {
         System.out.println("Ejecutando actualizarHallazgo...");
     }
 
-    // Métodos para eliminar
     @FXML
     private void eliminarHallazgo(ActionEvent event) {
         System.out.println("Ejecutando eliminarHallazgo...");
@@ -118,7 +107,6 @@ public class HallazgosController {
         System.out.println("Ejecutando borrarHallazgo...");
     }
 
-    // Limpieza de interfaz
     @FXML
     private void limpiarFormulario(ActionEvent event) {
         System.out.println("Limpiando formulario de hallazgos...");

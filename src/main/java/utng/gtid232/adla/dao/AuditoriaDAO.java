@@ -16,7 +16,6 @@ public class AuditoriaDAO {
 
     public List<Auditoria> listar() {
         List<Auditoria> lista = new ArrayList<>();
-        // CORREGIDO: "auditorias" y "empresas" en plural para coincidir con PostgreSQL
         String sql = "SELECT a.id_auditoria, a.id_empresa, a.id_auditor, a.fecha_inicio, a.fecha_fin, a.estatus, "
                    + "e.razon_social AS nombre_empresa, au.nombre_completo AS nombre_auditor "
                    + "FROM auditorias a " 
@@ -50,7 +49,6 @@ public class AuditoriaDAO {
     }
 
     public int insertar(Auditoria a) {
-        // CORREGIDO: "auditorias" en plural
         String sql = "INSERT INTO auditorias (id_empresa, id_auditor, fecha_inicio, fecha_fin, estatus) VALUES (?, ?, ?, ?, ?) RETURNING id_auditoria";
         try (Connection con = ConexionBD.getInstancia().getConexion();
              PreparedStatement ps = con.prepareStatement(sql)) {
@@ -77,7 +75,6 @@ public class AuditoriaDAO {
     }
 
     public boolean actualizar(Auditoria a) {
-        // CORREGIDO: "auditorias" en plural
         String sql = "UPDATE auditorias SET id_empresa=?, id_auditor=?, fecha_inicio=?, fecha_fin=?, estatus=? WHERE id_auditoria=?";
         try (Connection con = ConexionBD.getInstancia().getConexion();
              PreparedStatement ps = con.prepareStatement(sql)) {
@@ -100,7 +97,6 @@ public class AuditoriaDAO {
     }
 
     public boolean eliminar(int id) {
-        // CORREGIDO: "auditorias" en plural
         String sql = "DELETE FROM auditorias WHERE id_auditoria = ?";
         try (Connection con = ConexionBD.getInstancia().getConexion();
              PreparedStatement ps = con.prepareStatement(sql)) {

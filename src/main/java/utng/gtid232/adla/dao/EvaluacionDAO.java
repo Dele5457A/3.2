@@ -15,7 +15,6 @@ public class EvaluacionDAO {
 
     public List<Evaluacion> listarPorAuditoria(int auditoriaId) {
         List<Evaluacion> lista = new ArrayList<>();
-        // Consulta optimizada con JOIN para traer los datos descriptivos adicionales
         String sql = "SELECT ev.id_evaluacion, ev.id_auditoria, ev.id_criterio, ev.cumplimiento, "
                    + "ev.observaciones, ev.evidencia_ref, ev.fecha_captura, "
                    + "cr.descripcion AS descripcion_criterio, ca.nombre AS nombre_categoria "
@@ -39,13 +38,11 @@ public class EvaluacionDAO {
                     );
                     e.setIdEvaluacion(rs.getInt("id_evaluacion"));
                     
-                    // Manejo del campo LocalDateTime de fechaCaptura
                     Timestamp ts = rs.getTimestamp("fecha_captura");
                     if (ts != null) {
                         e.setFechaCaptura(ts.toLocalDateTime());
                     }
                     
-                    // Asignación de propiedades adicionales
                     e.setDescripcionCriterio(rs.getString("descripcion_criterio"));
                     e.setNombreCategoria(rs.getString("nombre_categoria"));
                     

@@ -33,7 +33,6 @@ public class Auditor {
     public String getCelulaProfesional() { 
         return celulaProfesional; 
     }
-    // Corregido a 'setCelulaProfesional' para que coincida con el atributo
     public void setCelulaProfesional(String celulaProfesional) { 
         this.celulaProfesional = celulaProfesional; 
     }

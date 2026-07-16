@@ -11,11 +11,10 @@ public class Evaluacion {
     private String evidenciaRef;        
     private LocalDateTime fechaCaptura; 
 
-    private String descripcionCriterio; // Nueva propiedad para la descripción del criterio
-    private String nombreCategoria; // Nueva propiedad para la descripción de la auditoría
+    private String descripcionCriterio; 
+    private String nombreCategoria; 
 
     public Evaluacion() {
-        // Constructor vacío
     }
 
     public Evaluacion( int idAuditoria, int idCriterio, String cumplimiento, String observaciones,

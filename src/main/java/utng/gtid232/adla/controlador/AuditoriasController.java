@@ -32,10 +32,9 @@ public class AuditoriasController {
     @FXML private ComboBox<Auditor> cmbAuditor;
     @FXML private DatePicker dpFechaInicio;
 
-    // --- Componentes enlazados de captura_evaluacion.fxml ---
     @FXML private ComboBox<Auditoria> cmbAuditoria;
     @FXML private ComboBox<String> cmbCategoria;
-    @FXML private TableView<Object> tblCriterios; // Puedes cambiar Object por tu modelo de Criterio si lo tienes
+    @FXML private TableView<Object> tblCriterios; 
     @FXML private TableColumn<Object, String> colDescripcion;
     @FXML private TableColumn<Object, Double> colPeso;
     @FXML private TableColumn<Object, String> colCumplimiento;
@@ -50,7 +49,6 @@ public class AuditoriasController {
 
     @FXML
     public void initialize() {
-        // Enlazar columnas de la tabla de auditorías si existen en la vista actual
         if (colId != null) colId.setCellValueFactory(new PropertyValueFactory<>("idAuditoria"));
         if (colEmpresa != null) colEmpresa.setCellValueFactory(new PropertyValueFactory<>("nombreEmpresa"));
         if (colAuditor != null) colAuditor.setCellValueFactory(new PropertyValueFactory<>("nombreAuditor"));
@@ -61,7 +59,6 @@ public class AuditoriasController {
         cargarCatalogos();
         cargarDatos();
 
-        // Listener de selección de la tabla
         if (tblAuditorias != null) {
             tblAuditorias.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
                 if (newSelection != null) {
@@ -97,21 +94,17 @@ public class AuditoriasController {
         }
     }
 
-    // --- EVENTOS DE captura_evaluacion.fxml ---
 
     @FXML
     private void cargarCriterios(ActionEvent event) {
         System.out.println("Botón 'Cargar criterios' presionado.");
-        // TODO: Agrega aquí la lógica para cargar los criterios en la tabla
     }
 
     @FXML
     private void guardarEvaluacion(ActionEvent event) {
         System.out.println("Botón 'Guardar evaluación' presionado.");
-        // TODO: Agrega aquí la lógica para persistir los cambios en la BD
     }
 
-    // --- EVENTOS DE GESTIÓN DE AUDITORÍAS ---
 
     @FXML
     private void crearAuditoria(ActionEvent event) {

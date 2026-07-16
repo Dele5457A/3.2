@@ -68,7 +68,6 @@ public class AuditoresController {
         }
     }
 
-    // Coincide con onAction="#guardarAuditor" en el FXML
     @FXML
     private void guardarAuditor() {
         String nombre = txtNombre.getText().trim();
@@ -106,7 +105,6 @@ public class AuditoresController {
         }
     }
 
-    // Coincide con onAction="#eliminarAuditor" en el FXML
     @FXML
     private void eliminarAuditor() {
         if (auditorSeleccionado != null) {
